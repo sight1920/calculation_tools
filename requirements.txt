@@ -1,0 +1,11 @@
+numpy==1.26.4
+torch==2.6.0
+torchvision==0.21.0
+pyiqa==0.1.15.post2
+transformers==4.57.1
+opencv-python-headless==4.11.0.86
+datasets==2.21.0
+pyarrow==17.0.0
+meson==1.9.0
+ninja==1.13.0
+pandas==2.3.3

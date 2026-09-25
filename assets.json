@@ -1,0 +1,80 @@
+{
+  "assets": [
+    {
+      "name": "vmaf-v3.2.1.tar.gz",
+      "group": "sources",
+      "bytes": 18589237,
+      "sha256": "1b4ded2ab0d336fbee99c7ecbd20ffaa1a51fd91b657ab1045db360714571294",
+      "sources": [{"url": "https://api.github.com/repos/Netflix/vmaf/tarball/v3.2.1"}]
+    },
+    {
+      "name": "avs-cvqa-e01944a363089a636ed3ce092b1d20cf475d44f2.tar.gz",
+      "group": "sources",
+      "bytes": 80509548,
+      "sha256": "7106fc87087a4f49658766dbe2142848334e88b03d488ceb20753a75135c3955",
+      "sources": [{"url": "https://gitlab.com/api/v4/projects/71521651/repository/archive.tar.gz?sha=e01944a363089a636ed3ce092b1d20cf475d44f2"}]
+    },
+    {
+      "name": "alexnet-owt-7be5be79.pth",
+      "group": "weights",
+      "target": "hub/checkpoints/alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "sources": [{"url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth"}]
+    },
+    {
+      "name": "vgg16-397923af.pth",
+      "group": "weights",
+      "target": "hub/checkpoints/vgg16-397923af.pth",
+      "bytes": 553433881,
+      "sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+      "sources": [{"url": "https://download.pytorch.org/models/vgg16-397923af.pth"}]
+    },
+    {
+      "name": "LPIPS_v0.1_alex-df73285e.pth",
+      "group": "weights",
+      "target": "hub/pyiqa/LPIPS_v0.1_alex-df73285e.pth",
+      "bytes": 6009,
+      "sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "sources": [
+        {"url": "https://api.github.com/repos/chaofengc/IQA-PyTorch/releases/assets/56388201", "headers": {"Accept": "application/octet-stream"}},
+        {"url": "https://github.com/chaofengc/IQA-PyTorch/releases/download/v0.1-weights/LPIPS_v0.1_alex-df73285e.pth"},
+        {"url": "https://huggingface.co/chaofengc/IQA-PyTorch-Weights/resolve/main/LPIPS_v0.1_alex-df73285e.pth"}
+      ]
+    },
+    {
+      "name": "DISTS_weights-f5e65c96.pth",
+      "group": "weights",
+      "target": "hub/pyiqa/DISTS_weights-f5e65c96.pth",
+      "bytes": 12288,
+      "sha256": "f5e65c96230b7f6ca995691647d482237e4cab8a50c5c4a5784f219ef0748218",
+      "sources": [
+        {"url": "https://api.github.com/repos/chaofengc/IQA-PyTorch/releases/assets/56388190", "headers": {"Accept": "application/octet-stream"}},
+        {"url": "https://github.com/chaofengc/IQA-PyTorch/releases/download/v0.1-weights/DISTS_weights-f5e65c96.pth"},
+        {"url": "https://huggingface.co/chaofengc/IQA-PyTorch-Weights/resolve/main/DISTS_weights-f5e65c96.pth"}
+      ]
+    },
+    {
+      "name": "src01_hrc00_576x324.yuv",
+      "group": "samples",
+      "target": "samples/src01_hrc00_576x324.yuv",
+      "bytes": 13436928,
+      "sha256": "e04985582622186fa7533e0115e473845d3360c91c77994a10d2220f0642aae1",
+      "sources": [
+        {"url": "https://api.github.com/repos/Netflix/vmaf_resource/git/blobs/0209a149c18b1dda200f6701bd75313388841944", "encoding": "github-blob"},
+        {"url": "https://raw.githubusercontent.com/Netflix/vmaf_resource/c0ab6adbd7e41bb354f14686ed08500530622bc3/python/test/resource/yuv/src01_hrc00_576x324.yuv"}
+      ]
+    },
+    {
+      "name": "src01_hrc01_576x324.yuv",
+      "group": "samples",
+      "target": "samples/src01_hrc01_576x324.yuv",
+      "bytes": 13436928,
+      "sha256": "7d420a485c1da6b341fd9c3c86f24aaa46e1adb0fa4b214aacaa730ec99dfae1",
+      "sources": [
+        {"url": "https://api.github.com/repos/Netflix/vmaf_resource/git/blobs/ccfbee72ba3459a97668e8e203ea0c628ab0fc77", "encoding": "github-blob"},
+        {"url": "https://raw.githubusercontent.com/Netflix/vmaf_resource/c0ab6adbd7e41bb354f14686ed08500530622bc3/python/test/resource/yuv/src01_hrc01_576x324.yuv"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+third_party/
+downloads/
+samples/*.yuv
+*.log
+*.so
+*.so.*
+*.a
+*.pth
+*.ckpt
