@@ -1,0 +1,28 @@
+{
+  "original": "samples/src01_hrc00_576x324.yuv",
+  "reconstructed": "samples/src01_hrc01_576x324.yuv",
+  "height": 324,
+  "width": 576,
+  "frames": 48,
+  "bit_depth": 8,
+  "scores": {
+    "PSNR_Y": 30.755064021048963,
+    "PSNR_U": 38.44944105716182,
+    "PSNR_V": 40.99191024862896,
+    "PSNR_YUV": 32.99646692901056,
+    "LPIPS": 0.14370303228497505,
+    "DISTS": 0.1303362138569355,
+    "VMAF": 76.66783149135578,
+    "FDIM": 4.0047002107004
+  },
+  "absolute_tolerances_for_recorded_environment": {
+    "PSNR_Y": 0.000001,
+    "PSNR_U": 0.000001,
+    "PSNR_V": 0.000001,
+    "PSNR_YUV": 0.000001,
+    "LPIPS": 0.00001,
+    "DISTS": 0.00001,
+    "VMAF": 0.000001,
+    "FDIM": 0.0001
+  }
+}
