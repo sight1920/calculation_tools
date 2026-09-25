@@ -37,7 +37,6 @@ If these tools are already installed, use the existing installation. Check `pyth
 ### 1. Extract the package and create an environment
 
 ```bash
-unzip calculation_tools_20260925.zip
 cd calculation_tools
 python3.10 -m venv .venv
 source .venv/bin/activate
@@ -118,7 +117,7 @@ python eval.py \
   --bit_depth 8
 ```
 
-The example is 576 pixels wide, 324 pixels high, 48 frames, 8-bit YUV420. Its reference output in the recorded environment is:
+The example is 576 pixels wide, 324 pixels high, 48 frames, 8-bit YUV420. The example sequences are `src01_hrc00_576x324.yuv` and `src01_hrc01_576x324.yuv`, taken from the reference examples at https://github.com/Netflix/vmaf/blob/v3.2.1/libvmaf/tools/README.md#example. Its reference output in the recorded environment is:
 
 ```text
 Resolution (HxW): 324x576
@@ -178,7 +177,7 @@ To prepare only selected resources, use `--group sources`, `--group weights` or 
 
 - **PSNR:** compute each plane's PSNR for each frame using a peak of `2**bit_depth - 1`. The per-frame YUV value is `(6 * PSNR_Y + PSNR_U + PSNR_V) / 8`, in dB. Average each reported PSNR over frames. Identical planes produce infinity.
 - **LPIPS/DISTS:** use DCVC-style full-range normalization, nearest-neighbor chroma upsampling and the BT.709 matrix, then clip RGB to `[0, 1]`. Run the PyIQA models at native resolution in float32 and average the frame scores. Do not manually normalize RGB to `[-1, 1]` before PyIQA.
-- **VMAF:** pass raw YUV frames to the official libvmaf v3.2.1 C API with `vmaf_v0.6.1`, preserve temporal state and average all requested frame scores. The source release is v3.2.1 even though its upstream runtime version string reports 3.2.0.
+- **VMAF:** pass raw YUV frames to the official libvmaf v3.2.1 C API with `vmaf_v0.6.1`, preserve temporal state and average all requested frame scores.
 - **FDIM:** preserve the pinned upstream implementation's FFmpeg RGB24 conversion and per-frame deep model. Average raw deep scores before applying the nonlinear mapping. Its separate bundled VMAF is **3.0.0**, with upstream's automatic 4K model selection. Map the sequence-level VMAF mean and average the two mapped components. FDIM's internal VMAF must not be replaced with the separately reported VMAF backend.
 
 ## Code Organization
@@ -205,20 +204,6 @@ calculation_tools/
 
 `downloads/`, `.cache/`, `samples/` and `third_party/` are created during setup. The evaluator and metric functions retain the original calculation behavior. This distribution contains the YUV entry point present in the source directory; it does not provide a separate image CLI.
 
-## Validation and Troubleshooting
-
-The release is checked in a newly created Python virtual environment with `include-system-site-packages = false`. See `validation/README.md`, the captured example output and the environment/version report for the exact commands, preparation route and results. System Python, FFmpeg and the compiler are prerequisites on the test host; this is not a fresh operating-system installation.
-
-| Symptom | Action |
-| --- | --- |
-| Weight download starts during evaluation | Activate the intended environment, set the same `TORCH_HOME`, and rerun `prepare_assets.py --group weights`. |
-| Hugging Face/GitHub is unreachable | Prepare the asset cache on a connected machine and use `--offline`. |
-| Missing VMAF library or FDIM file | Run both setup commands in this extracted package. Rebuild libvmaf after moving the package to another environment. |
-| `ffmpeg` not found | Install FFmpeg and ensure its executable is on PATH. |
-| File size/frame count error | Check `--HxW`, bit depth, planar layout and available frames. |
-| CUDA out of memory | Free GPU memory or set `CUDA_VISIBLE_DEVICES=""` for CPU evaluation. |
-| FDIM differs from a previous run | Check FFmpeg version, RGB conversion, checkpoint and the pinned internal VMAF version. |
-
 ## References and Third-Party Materials
 
 - [PyIQA](https://github.com/chaofengc/IQA-PyTorch/tree/v0.1.15)
@@ -226,5 +211,3 @@ The release is checked in a newly created Python virtual environment with `inclu
 - [Official FDIM source and usage](https://gitlab.com/jiaqi.zhangzju/avs-cvqa/-/tree/e01944a363089a636ed3ce092b1d20cf475d44f2)
 - [Netflix example resources](https://github.com/Netflix/vmaf_resource/tree/c0ab6adbd7e41bb354f14686ed08500530622bc3/python/test/resource/yuv)
 - [DCVC color conversion reference](https://github.com/microsoft/DCVC/blob/54e88645e1b4edac0694228ab2f44ed8818e345b/src/utils/transforms.py)
-
-See `THIRD_PARTY.md` for the distribution scope and upstream attribution. The project owner's license selection is pending; this package does not assign a new license to third-party code, models or media.
