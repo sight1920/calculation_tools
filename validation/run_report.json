@@ -1,0 +1,297 @@
+{
+  "date_utc": "2026-09-25T01:25:20.218729+00:00",
+  "validation_scope": "Fresh Python virtual environment on an existing Linux host; no system site packages. The documented offline asset route was completed. No fresh operating-system installation or uninterrupted online asset download is claimed.",
+  "environment": {
+    "python": "3.10.9",
+    "os": "Linux",
+    "architecture": "x86_64",
+    "libc": [
+      "glibc",
+      "2.27"
+    ],
+    "include_system_site_packages": false,
+    "packages": {
+      "pip": "22.3.1",
+      "numpy": "1.26.4",
+      "torch": "2.6.0",
+      "torchvision": "0.21.0",
+      "pyiqa": "0.1.15.post2",
+      "transformers": "4.57.1",
+      "opencv-python-headless": "4.11.0.86",
+      "datasets": "2.21.0",
+      "pyarrow": "17.0.0",
+      "meson": "1.9.0",
+      "ninja": "1.13.0",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3"
+    },
+    "torch_runtime_version": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "gpu": "NVIDIA GeForce GTX 1080 Ti",
+    "driver": "535.146.02",
+    "ffmpeg": "ffmpeg version 4.3 Copyright (c) 2000-2020 the FFmpeg developers",
+    "compiler": "cc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+  },
+  "python_installation": {
+    "command": "python -m pip install -r requirements.txt",
+    "returncode": 0
+  },
+  "commands": [
+    {
+      "stage": "pip_check",
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "returncode": 0,
+      "seconds": 2.352,
+      "status": "passed"
+    },
+    {
+      "stage": "prepare_assets",
+      "command": [
+        "python",
+        "prepare_assets.py"
+      ],
+      "returncode": -15,
+      "seconds": 259.723,
+      "status": "Stopped after slow/unreliable online download; documented offline route was used instead."
+    },
+    {
+      "stage": "prepare_assets_offline",
+      "command": [
+        "python",
+        "prepare_assets.py",
+        "--offline",
+        "--cache_dir",
+        "downloads"
+      ],
+      "returncode": 0,
+      "seconds": 5.029,
+      "status": "passed"
+    },
+    {
+      "stage": "setup_vmaf",
+      "command": [
+        "python",
+        "setup_vmaf.py",
+        "--archive",
+        "downloads/vmaf-v3.2.1.tar.gz"
+      ],
+      "returncode": 0,
+      "seconds": 20.619,
+      "status": "passed"
+    },
+    {
+      "stage": "setup_fdim",
+      "command": [
+        "python",
+        "setup_fdim.py",
+        "--archive",
+        "downloads/avs-cvqa-e01944a363089a636ed3ce092b1d20cf475d44f2.tar.gz"
+      ],
+      "returncode": 0,
+      "seconds": 4.038,
+      "status": "passed"
+    },
+    {
+      "stage": "help",
+      "command": [
+        "python",
+        "eval.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "seconds": 2.256,
+      "status": "passed"
+    },
+    {
+      "stage": "sample",
+      "command": [
+        "python",
+        "eval.py",
+        "--original_path",
+        "samples/src01_hrc00_576x324.yuv",
+        "--recon_path",
+        "samples/src01_hrc01_576x324.yuv",
+        "--HxW",
+        "324x576",
+        "--frames",
+        "48",
+        "--bit_depth",
+        "8"
+      ],
+      "returncode": 0,
+      "seconds": 14.309,
+      "status": "passed"
+    }
+  ],
+  "asset_preparation": "All eight official assets supplied from previously downloaded files, verified by prepare_assets.py and installed into a new project-local cache.",
+  "assets": [
+    {
+      "name": "vmaf-v3.2.1.tar.gz",
+      "bytes": 18589237,
+      "sha256": "1b4ded2ab0d336fbee99c7ecbd20ffaa1a51fd91b657ab1045db360714571294",
+      "verified": true
+    },
+    {
+      "name": "avs-cvqa-e01944a363089a636ed3ce092b1d20cf475d44f2.tar.gz",
+      "bytes": 80509548,
+      "sha256": "7106fc87087a4f49658766dbe2142848334e88b03d488ceb20753a75135c3955",
+      "verified": true
+    },
+    {
+      "name": "alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "verified": true
+    },
+    {
+      "name": "vgg16-397923af.pth",
+      "bytes": 553433881,
+      "sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+      "verified": true
+    },
+    {
+      "name": "LPIPS_v0.1_alex-df73285e.pth",
+      "bytes": 6009,
+      "sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "verified": true
+    },
+    {
+      "name": "DISTS_weights-f5e65c96.pth",
+      "bytes": 12288,
+      "sha256": "f5e65c96230b7f6ca995691647d482237e4cab8a50c5c4a5784f219ef0748218",
+      "verified": true
+    },
+    {
+      "name": "src01_hrc00_576x324.yuv",
+      "bytes": 13436928,
+      "sha256": "e04985582622186fa7533e0115e473845d3360c91c77994a10d2220f0642aae1",
+      "verified": true
+    },
+    {
+      "name": "src01_hrc01_576x324.yuv",
+      "bytes": 13436928,
+      "sha256": "7d420a485c1da6b341fd9c3c86f24aaa46e1adb0fa4b214aacaa730ec99dfae1",
+      "verified": true
+    }
+  ],
+  "sample_comparison": {
+    "PSNR_Y": {
+      "observed_cli_value": 30.755064,
+      "reference": 30.755064021048963,
+      "absolute_error": 2.104896168475534e-08,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "PSNR_U": {
+      "observed_cli_value": 38.449441,
+      "reference": 38.44944105716182,
+      "absolute_error": 5.7161820166129473e-08,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "PSNR_V": {
+      "observed_cli_value": 40.99191,
+      "reference": 40.99191024862896,
+      "absolute_error": 2.486289645275974e-07,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "PSNR_YUV": {
+      "observed_cli_value": 32.996467,
+      "reference": 32.99646692901056,
+      "absolute_error": 7.098944365679927e-08,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "LPIPS": {
+      "observed_cli_value": 0.143703,
+      "reference": 0.14370303228497505,
+      "absolute_error": 3.228497505447514e-08,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "DISTS": {
+      "observed_cli_value": 0.130336,
+      "reference": 0.1303362138569355,
+      "absolute_error": 2.1385693549369478e-07,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "VMAF": {
+      "observed_cli_value": 76.667831,
+      "reference": 76.66783149135578,
+      "absolute_error": 4.913557773988941e-07,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "FDIM": {
+      "observed_cli_value": 4.0047,
+      "reference": 4.0047002107004,
+      "absolute_error": 2.1070040023829506e-07,
+      "tolerance": 0.0001,
+      "passed": true
+    }
+  },
+  "vmaf_build": {
+    "release": "3.2.1",
+    "source_url": "https://api.github.com/repos/Netflix/vmaf/tarball/v3.2.1",
+    "source_sha256": "1b4ded2ab0d336fbee99c7ecbd20ffaa1a51fd91b657ab1045db360714571294",
+    "source_directory": "Netflix-vmaf-f85a853",
+    "runtime_version": "3.2.0",
+    "model": "vmaf_v0.6.1.json",
+    "model_sha256": "5950d61fa1f861bd45d8149d80539ed9f3376cfc2495b8f0fa8e9f57cb131ee3",
+    "meson_options": [
+      "--buildtype=release",
+      "--prefix=<package>/third_party/vmaf-3.2.1",
+      "--libdir=lib",
+      "-Denable_asm=false",
+      "-Denable_avx512=false",
+      "-Dbuilt_in_models=false",
+      "-Denable_docs=false",
+      "-Denable_tests=true",
+      "-Denable_float=false",
+      "-Denable_cuda=false"
+    ],
+    "upstream_tests_run": [
+      "test_picture",
+      "test_thread_pool",
+      "test_feature_extractor",
+      "test_dict",
+      "test_cpu",
+      "test_ref",
+      "test_feature",
+      "test_ciede",
+      "test_cambi",
+      "test_luminance_tools",
+      "test_cli_parse",
+      "test_psnr",
+      "test_framesync",
+      "test_propagate_metadata",
+      "test_adm_csf",
+      "test_barten_csf",
+      "test_motion_blend"
+    ],
+    "upstream_tests_requiring_embedded_models": [
+      "test_feature_collector",
+      "test_model",
+      "test_pic_preallocation",
+      "test_predict"
+    ]
+  },
+  "vmaf_upstream_tests_passed": 17,
+  "original_python_sources_unchanged": {
+    "eval.py": "62c71c2377d96d9e98a748f3204a6aebe9e9f7f48b4f4e9b02d1bb0c70cba0e9",
+    "metrics/dists.py": "901d6ab25bba02cf4e96ea38160a3dc5338fc633231d7dcf369647203cd824c3",
+    "metrics/fdim.py": "13c727cd738d1d1b95cd41c5391e99d6ad2e7ccd30c7499b0cb590c5ac1a4661",
+    "metrics/lpips.py": "c5abe9e18bf88eab4c7f376019aeb4fb7ac3ad0dba8254daca60daf5b2ea53f1",
+    "metrics/psnr.py": "56afa658a660a0d599a49f4f45d4729f6a3531116f37439bf3335f47552130cb",
+    "metrics/vmaf.py": "5dda73238b5fdf4aa16dd8b5973aabcc23cafc5e5f351d7808bac664e096e654",
+    "setup_fdim.py": "c45fd09c4fe7515b0654f38a6e3eb76c9be40882a97831308bac7291370b3b22",
+    "setup_vmaf.py": "d7e3e7e0861c8b09086be75f3258cb6ac363b6f62757831a90c3a63aa25bac23"
+  }
+}

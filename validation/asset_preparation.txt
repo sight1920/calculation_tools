@@ -1,0 +1,15 @@
+Verified cache: <package>/downloads/vmaf-v3.2.1.tar.gz
+Verified cache: <package>/downloads/avs-cvqa-e01944a363089a636ed3ce092b1d20cf475d44f2.tar.gz
+Verified cache: <package>/downloads/alexnet-owt-7be5be79.pth
+Ready: <package>/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth
+Verified cache: <package>/downloads/vgg16-397923af.pth
+Ready: <package>/.cache/torch/hub/checkpoints/vgg16-397923af.pth
+Verified cache: <package>/downloads/LPIPS_v0.1_alex-df73285e.pth
+Ready: <package>/.cache/torch/hub/pyiqa/LPIPS_v0.1_alex-df73285e.pth
+Verified cache: <package>/downloads/DISTS_weights-f5e65c96.pth
+Ready: <package>/.cache/torch/hub/pyiqa/DISTS_weights-f5e65c96.pth
+Verified cache: <package>/downloads/src01_hrc00_576x324.yuv
+Ready: <package>/samples/src01_hrc00_576x324.yuv
+Verified cache: <package>/downloads/src01_hrc01_576x324.yuv
+Ready: <package>/samples/src01_hrc01_576x324.yuv
+Requested assets are ready.
